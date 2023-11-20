@@ -67,7 +67,9 @@ app.get('/allVendors',async(req,res)=>{
   }
 })
 
-app.
+app.put('/updateVendor/:id',async(req,res)=>{
+  
+})
 
 app.delete('/deleteVendor/:id', async(req,res)=>{
   try{
