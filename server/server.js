@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
 
 
 app.post('/createvendor',async(req,res)=>{
-  const vendorName =req.body.vendorName;
-  const bankAccountNo= req.body.bankAccountNo;
+  const name =req.body.name;
+  const account= req.body.account;
   const bankName= req.body.bankName;
   const address = req.body.address;
   const city = req.body.city;
@@ -31,8 +31,8 @@ app.post('/createvendor',async(req,res)=>{
 
   try{
     const vendor=new Vendor({
-      name:vendorName,
-      account:bankAccountNo,
+      name:name,
+      account:account,
       bankName:bankName,
       address:address,
       city:city,
@@ -54,7 +54,7 @@ app.get('/vendor/:id',async(req,res)=>{
      const vendor = await Vendor.findById(id);
      res.send({vendor});
     }catch(error){
-      res.send(error.message);
+      res.send("Does Not Exist");
     }
 })
 
@@ -68,7 +68,13 @@ app.get('/allVendors',async(req,res)=>{
 })
 
 app.put('/updateVendor/:id',async(req,res)=>{
-  
+  try{
+   const {id}=req.params;
+   const updatedVendor =await Vendor.replaceOne({_id:id}, req.body);
+   res.send("UPDATED");
+  }catch(error){
+    res.send(error.message)
+  }
 })
 
 app.delete('/deleteVendor/:id', async(req,res)=>{
