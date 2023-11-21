@@ -1,0 +1,92 @@
+@media (width>=900px){
+.container{
+padding: 30px;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 30px;
+grid-row-gap: 10px;
+}
+}
+
+@media (width<=600px){
+.google-image{
+ display: none;
+}
+.button-container{
+    margin: 10px;
+}
+}
+
+nav{
+ font-family: 'Inter', sans-serif;
+  background-color:#1342b0;
+  color:#94a3b8;
+  min-width:100vw;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cursor{
+  height: 60px;
+  width: 60px;
+}
+.title{
+    margin-left: 20px;
+    padding:10px;
+    color: #ffffff;
+    font-weight: 900;
+    font-family:monospace;
+    font-size: 40px;
+}
+.button-container{
+    padding: 15px;
+}
+.nav-button{
+ padding: 5px;
+ margin: 5px;
+ font-weight: 500;
+ border:0px;
+ border-radius: 6px;
+}
+.container{
+background-color: #ffffff;
+ padding: 30px;
+}
+.vendor-card{
+    background-color: antiquewhite;
+    border:1px solid #ffffff;
+    border-radius: 12px;
+    margin:30px 10px;
+    padding: 10px;
+}
+.card-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+span{
+    margin:5px;
+    padding:5px;
+    
+}
+.card-address{
+    margin-bottom: 15px;
+}
+.edit{
+padding: 10px 15px;
+font-weight: 500;
+border:0px;
+border-radius: 6px;
+background-color: #1342b0;
+color:#ffffff;
+}
+.delete{
+padding: 10px 15px;
+font-weight: 500;
+border:0px;
+border-radius: 6px;
+background-color: #ffbe27;
+
+}

@@ -1,24 +1,64 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors=require('cors');
 const Vendor =require('./vendor');
 const dotenv =require('dotenv');
-const vendor = require('./vendor');
 dotenv.config();
 const app = express();
 mongoose.set('strictQuery',false);
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}));
 
 const PORT = process.env.PORT;
 const CONNECTION =process.env.CONNECTION;
 
+app.use('/createvendor',(req,res,next)=>{
+ if(req.body.clientId==null || req.body.account ==null){
+  res.status(400);
+  res.send("Enter Account No");
+ }
+ next()
+})
+
+app.use('/updateVendor/:id',async function(req,res,next){
+  const {id} =req.params;
+  const vendor=await Vendor.findById(id);
+  try{
+    if( req.body.clientId !== vendor.clientId){
+      res.status(500);
+      res.send("Your are not the owner cannot Update");
+    }
+    else{
+      next();
+    }
+  }catch(error){
+    res.send(error.message);
+  }
+})
+
+app.use('/deleteVendor/:id',async(req,res,next)=>{
+  const {id} =req.params;
+  const vendor=await Vendor.findById(id);
+  try{
+    if( req.body.clientId !== vendor.clientId){
+      res.status(500);
+      res.send("Your are not the owner cannot Delete");
+    }
+    else{
+      next();
+    }
+  }catch(error){
+    res.send(error.message);
+  }
+})
 
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-
+//AUTHENTICATE
 app.post('/createvendor',async(req,res)=>{
   const name =req.body.name;
   const account= req.body.account;
@@ -28,6 +68,7 @@ app.post('/createvendor',async(req,res)=>{
   const state = req.body.state;
   const zipcode = req.body.zipCode;
   const country = req.body.country;
+  const clientId =req.body.clientId;
 
   try{
     const vendor=new Vendor({
@@ -38,7 +79,8 @@ app.post('/createvendor',async(req,res)=>{
       city:city,
       state:state,
       country:country,
-      zipCode:zipcode
+      zipCode:zipcode,
+      clientId:clientId,
     });
     await vendor.save();
     res.send(vendor);
@@ -67,6 +109,7 @@ app.get('/allVendors',async(req,res)=>{
   }
 })
 
+//AUTHENTICATE IF IS ELIGIBLE TO UPDATE 
 app.put('/updateVendor/:id',async(req,res)=>{
   try{
    const {id}=req.params;
@@ -77,6 +120,7 @@ app.put('/updateVendor/:id',async(req,res)=>{
   }
 })
 
+//AUTHENTICATE IF IS ELIGIBLE TO DELETE
 app.delete('/deleteVendor/:id', async(req,res)=>{
   try{
     const vendorId =req.params.id;
@@ -110,3 +154,11 @@ start();
 
 
 //notpassword
+
+
+// ,async(req,res,next)=>{
+//   const {id} =req.params;
+//   const vendor=await Vendor.findById(id);
+//   req.body.clientId=vendor.clientId;
+//   next();
+// },

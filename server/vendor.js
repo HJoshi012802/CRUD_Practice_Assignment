@@ -10,7 +10,8 @@ const vendorkaSchema =new mongoose.Schema({
    country:String,
    zipCode:String,
    createtime:{type:Date,immutable:true, default:Date.now},
-   updatetime:{type:Date,default:Date.now}
+   updatetime:{type:Date,default:Date.now},
+   clientId:{type:String, immutable: true,required:true, unique:true}
 });
 
 module.exports = mongoose.model('Vendor',vendorkaSchema);
