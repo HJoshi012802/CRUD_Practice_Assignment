@@ -88,5 +88,13 @@ font-weight: 500;
 border:0px;
 border-radius: 6px;
 background-color: #ffbe27;
-
+}
+.disabled{
+width: 100%;
+padding: 10px 15px;
+font-weight: 500;
+color: #ffffff;
+border:0px;
+border-radius: 6px;
+background-color: #93928e;
 }

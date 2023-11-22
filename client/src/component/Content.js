@@ -2,8 +2,9 @@ import {useState,useEffect} from "react";
 import "../style/Content.css";
 import axios from 'axios';
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
-export default function Content({savecred}){
+export default function Content({clientId}){
   const[vendor,setVendor]=useState([]);
     useEffect(()=>{
       axios.get("http://localhost:8080/allVendors").then((res)=>{
@@ -21,14 +22,14 @@ export default function Content({savecred}){
           <nav>
             <h1 className="title">JS TIGERS</h1>
             <div className="button-container">
-              <button className="nav-button">Create Vendor</button>
+              <button className="nav-button"><Link style={{color:"black",textDecoration:"none"}}  to={`/createvendor/${clientId}`}>Create Vendor</Link></button>
               <button  className="nav-button">Log Out</button>
-                <img className="google-image" src={savecred.picture} style={{width:"60px", height:"60px",borderBlockColor:"antiquewhite", borderRadius:"50px", marginLeft:"30px", marginRight:"20px"}}></img>
+                {/* <img className="google-image" src={savecred.picture} style={{width:"60px", height:"60px",borderBlockColor:"antiquewhite", borderRadius:"50px", marginLeft:"30px", marginRight:"20px"}}></img> */}
             </div>
           </nav>
       <div className="container">
       {
-        vendor.map((v)=>(<Card vendor={v}/>))
+        vendor.map((v, index)=>(<Card vendor={v} key={index} clientId={clientId}/>))
       }
       </div>
     </div>

@@ -42,12 +42,14 @@ app.use('/deleteVendor/:id',async(req,res,next)=>{
   const {id} =req.params;
   const vendor=await Vendor.findById(id);
   try{
-    if( req.body.clientId !== vendor.clientId){
-      res.status(500);
-      res.send("Your are not the owner cannot Delete");
+    console.log(req.body.clientId === vendor.clientId);
+    if( req.body.clientId === vendor.clientId){
+    next();
     }
     else{
-      next();
+      res.status(500);
+      res.send("Your are not the owner cannot Delete");
+      return;
     }
   }catch(error){
     res.send(error.message);
@@ -151,14 +153,3 @@ const start =async() =>{
   };
 
 start();
-
-
-//notpassword
-
-
-// ,async(req,res,next)=>{
-//   const {id} =req.params;
-//   const vendor=await Vendor.findById(id);
-//   req.body.clientId=vendor.clientId;
-//   next();
-// },

@@ -9,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.cursor{
+/* .cursor{
   position: absolute;
   height: 100px;
   width: 100px;
@@ -19,4 +19,4 @@ body {
   transform:translate(-50%,-50%);
   mix-blend-mode: difference;
   
-}
+} */
