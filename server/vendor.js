@@ -2,7 +2,7 @@ const mongoose =require('mongoose');
 
 const vendorkaSchema =new mongoose.Schema({
    name:String,
-   account:{type: String,required:true,unique:true,immutable:true},
+   account:{type:String,required:true,unique:true,immutable:true},
    bankName:String,
    address:String,
    city:String,

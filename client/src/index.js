@@ -8,9 +8,10 @@ import Createvendor from "./component/Createvendor";
 import Updatedvendor from './component/Updatevendor';
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<GoogleOAuthProvider clientId="880668664835-44i8nghecg799pftngho3uer6j24o7dk.apps.googleusercontent.com">
+<GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
   <BrowserRouter>
   <Routes>
   <Route path='/' element={<App/>}/>

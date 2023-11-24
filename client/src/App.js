@@ -6,11 +6,11 @@ import { useState } from 'react';
 
 function App() {
  const[cred,setCred]=useState(false);
-const[vdecode,setDecode]=useState();
+const[decode,setDecode]=useState();
 const[clientId,setclientId]=useState();
 
   return cred?(
-  <Content savecred={vdecode} clientId={clientId}/>
+  <Content savecred={decode} clientId={clientId} setCred={setCred}/>
   ):( <div className="Google">
   <div className="Google-header">
   <div className="text"> Google Login </div>

@@ -15,7 +15,7 @@ export default function Card({vendor, index, clientId}){
         }).catch((error)=>{
             console.log("Not the Owner");
         })
-          window.location.reload(false);
+        window.location.reload(false);
     }
 
     return(
