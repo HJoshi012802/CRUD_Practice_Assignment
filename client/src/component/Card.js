@@ -37,7 +37,7 @@ export default function Card({vendor, index, clientId}){
         </div>
         ) : (
         <div className="card-button">
-        <button className="disabled">disabled</button>
+        <button className="disabled">{vendor.clientId}</button>
         
         </div>
         )
