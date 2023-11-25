@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&family=Roboto:ital,wght@0,400;0,700;0,900;1,300&display=swap');
 @media (width>=900px){
 .container{
 padding: 30px;
@@ -21,16 +22,12 @@ grid-row-gap: 10px;
 nav{
  font-family: 'Inter', sans-serif;
   background-color:#1342b0;
-  color:#94a3b8;
+  color:#7993b7;
   min-width:100vw;
   height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.cursor{
-  height: 60px;
-  width: 60px;
 }
 .title{
     margin-left: 20px;
@@ -39,6 +36,7 @@ nav{
     font-weight: 900;
     font-family:monospace;
     font-size: 40px;
+    
 }
 .button-container{
     padding: 15px;
@@ -46,16 +44,18 @@ nav{
 .nav-button{
  padding: 5px;
  margin: 5px;
- font-weight: 500;
+ font-weight: 300;
+ font-family:roboto;
  border:0px;
  border-radius: 6px;
 }
 .container{
 background-color: #ffffff;
  padding: 30px;
+ font-family:roboto;
 }
 .vendor-card{
-    background-color: antiquewhite;
+    background-color: rgb(232, 229, 227);
     border:1px solid #ffffff;
     border-radius: 12px;
     margin:30px 10px;
@@ -69,7 +69,6 @@ background-color: #ffffff;
 span{
     margin:5px;
     padding:5px;
-    
 }
 .card-address{
     margin-bottom: 15px;
@@ -96,5 +95,5 @@ font-weight: 500;
 color: #ffffff;
 border:0px;
 border-radius: 6px;
-background-color: #93928e;
+background-color: #2f2d2d;
 }

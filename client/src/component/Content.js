@@ -14,7 +14,7 @@ export default function Content({clientId,savecred}){
      }).catch((error)=>{
       console.log(error);
      })
-     
+     //console.log(savecred);
     },[vendor])
 
     return(

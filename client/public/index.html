@@ -12,13 +12,16 @@
     <title>Vendor CRUD</title>
   </head>
   <body>
+    <div class="cursor"></div>
     <!-- <div class="cursor"></div> -->
     <div id="root"></div>
   </body>
   <script>
-    const mouseCursor=document.querySelector(".cursor");
-
-
-
+    let mouseCursor=document.querySelector('.cursor');
+      window.addEventListener('mousemove',cursor);
+      function cursor(e){
+      mouseCursor.style.top=e.pageY +"px";
+      mouseCursor.style.left=e.pageX +"px";
+      }
   </script>
 </html>

@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useParams } from "react-router-dom";
-
+import '../style/form.css';
 
 
 export default function Createvendor(){
@@ -94,8 +94,8 @@ export default function Createvendor(){
    }
 
     return(
-        <div>
-      <Form className="m-6">
+        <div className="form-box">
+      <Form >
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Name</Form.Label>
