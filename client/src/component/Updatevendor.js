@@ -10,7 +10,7 @@ import '../style/form.css';
 export default function Updatedvendor(){
     const {id} =useParams();
     useEffect(()=>{
-        axios.get(`http://localhost:8080/vendor/${id}`).then((res)=>{
+        axios.get(`https://crud-practice-assignment.vercel.app/vendor/${id}`).then((res)=>{
                 setName(res.data.vendor.name);
                 setAccount(res.data.vendor.account);
                 setBname(res.data.vendor.bankName);
@@ -55,7 +55,7 @@ export default function Updatedvendor(){
           "clientId":clientId,
         }
 
-        const response= await fetch(`http://localhost:8080/updateVendor/${id}`,{
+        const response= await fetch(`https://crud-practice-assignment.vercel.app/updateVendor/${id}`,{
           method:'PUT',
           headers: {'Content-Type': 'application/json',},
           body: JSON.stringify(data),

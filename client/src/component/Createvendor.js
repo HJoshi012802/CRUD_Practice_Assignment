@@ -35,7 +35,7 @@ export default function Createvendor(){
           "clientId":clientId,
         }
 
-        const response= await fetch('http://localhost:8080/createvendor',{
+        const response= await fetch('https://crud-practice-assignment.vercel.app/createvendor',{
           method:'POST',
           headers: {'Content-Type': 'application/json',},
           body: JSON.stringify(data),
