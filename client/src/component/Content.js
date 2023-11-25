@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function Content({clientId,savecred}){
   const[vendor,setVendor]=useState([]);
     useEffect(()=>{
-      axios.get("https://crud-practice-assignment-bto7sjzeq.vercel.app/allVendors").then((res)=>{
+      axios.get("http://localhost:8080/allVendors").then((res)=>{
       //console.log(res.data.allVendors);
       setVendor(res.data.allVendors);
       

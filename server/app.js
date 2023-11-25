@@ -10,6 +10,12 @@ mongoose.set('strictQuery',false);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}));
+app.use((err,req,res,next)=>{
+ const token=req.header('Authorization');
+ if(!token){
+  return next();
+ }
+})
 
 const PORT = process.env.PORT;
 const CONNECTION =process.env.CONNECTION;
