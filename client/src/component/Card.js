@@ -8,7 +8,7 @@ export default function Card({vendor, index, clientId}){
     const DeletePost = async() => {
         const data={clientId: clientId};
         console.log(clientId);
-        await fetch(`http://localhost:8080/deleteVendor/${id}`,{
+        await fetch(`https://crud-practice-assignment-bto7sjzeq.vercel.app/deleteVendor/${id}`,{
           method:'DELETE',
           headers: {'Content-Type': 'application/json',},
           body: JSON.stringify(data),
