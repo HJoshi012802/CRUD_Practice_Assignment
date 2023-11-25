@@ -17,6 +17,7 @@ const[clientId,setclientId]=useState();
   <GoogleLogin
   onSuccess={credentialResponse => {
   const decode=jwtDecode(credentialResponse.credential);
+  console.log(credentialResponse.credential)
   setclientId(decode.email);
   setDecode(decode);
   setCred(true);
