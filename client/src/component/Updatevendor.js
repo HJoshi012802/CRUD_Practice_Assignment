@@ -13,7 +13,7 @@ export default function Updatedvendor(){
         axios.get(`http://localhost:8080/vendor/${id}`).then((res)=>{
                 setName(res.data.vendor.name);
                 setAccount(res.data.vendor.account);
-                setBname(res.data.vendor.bank);
+                setBname(res.data.vendor.bankName);
                 setAdd(res.data.vendor.address);
                 setCity(res.data.vendor.city);
                 setState(res.data.vendor.state);
